@@ -21,7 +21,7 @@ class Main extends PluginBase {
         
         EntityFactory::getInstance()->register(EntityArmorStand::class, function(World $world, CompoundTag $nbt) : EntityArmorStand{
 			return new EntityArmorStand(EntityDataHelper::parseLocation($nbt, $world), $nbt);
-		}, ["PMArmorStand"]);
+		}, ["ArmorStand"]);
         
 		GlobalItemDataHandlers::getDeserializer()->map(ItemTypeNames::ARMOR_STAND, fn() => clone ArmorStandItemRegistry::ARMOR_STAND());
         GlobalItemDataHandlers::getSerializer()->map(ArmorStandItemRegistry::ARMOR_STAND(), fn() => new SavedItemData(ItemTypeNames::ARMOR_STAND));
