@@ -12,9 +12,7 @@ use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
 use pocketmine\player\Player;
 use pocketmine\inventory\BaseInventory;
 use pocketmine\block\VanillaBlocks;
-use SplFixedArray;
 use pocketmine\network\mcpe\convert\TypeConverter;
-use pocketmine\network\mcpe\protocol\types\inventory\ContainerIds;
 
 class ArmorStandEntityEquipment extends BaseInventory{
 
@@ -45,7 +43,7 @@ class ArmorStandEntityEquipment extends BaseInventory{
 		$pk = new MobEquipmentPacket();
 		$pk->actorRuntimeId = $this->holder->getId();
 		$pk->inventorySlot = $pk->hotbarSlot = $index;    
-    $pk->item = ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet($this->getItem($index)));
+                $pk->item = ItemStackWrapper::legacy(TypeConverter::getInstance()->coreItemStackToNet($this->getItem($index)));
         
 
 		if($target instanceof Player){
